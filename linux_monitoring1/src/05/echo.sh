@@ -1,0 +1,17 @@
+#!/bin/bash
+cd $DIRECTORY
+echo "Total number of folders (including all nested ones) = $(  ls -lR  | grep ^d | wc -l)"
+echo "TOP 5 folders of maximum size arranged in descending order (path and size):"
+echo "$(  du -hx  | sort -n -r | head -n 5 | awk '{ printf "%d - %s, %s\n", NR, $1, $2}')"
+echo "Total number"
+echo "of files = $(  find -type f | wc -l)"
+echo "Number of: Configuration files (with the .conf extension) = $(  find -name "*.conf" | wc -l) "
+echo "Text files = $(  find -name '*.txt' -name '*.dock' -name '*.doc' | wc -l) "
+echo "Executable files = $(  find . -type f -perm -u+rx | wc -l)"
+echo "Log files (with the extension .log) = $(  find -name *.log | wc -l)"
+echo "Archive files = $(find -type f -name "*.zip" -o -name "*.7z" -o -name "*.rar" -o -name "*.tar" | wc -l)"
+echo "Symbolic links = $(  ls -l | grep -c ^l)"
+echo "TOP 10 files of maximum size arranged in descending order (path, size and type): "
+echo "$(  find -type f -exec du -Sh {} + | sort -n -r | head -n 10 | awk '{ printf "%d - %s, %s\n", NR, $2, $1}')"
+echo "TOP 10 executable files of the maximum size arranged in descending order (path, size and MD5 hash of file) "
+echo "$(  find -type f -executable -exec du -sh {} + | sort -hr | head -n 10 | awk '{cmd = "md5sum " $2; cmd| getline result ; printf "%d - %s, %sB, %s\n", NR, $2, $1, result}' | awk '{print $1,$2,$3,$4,$5}' )"
