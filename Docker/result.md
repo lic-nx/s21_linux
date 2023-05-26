@@ -45,19 +45,29 @@
 **== Задание ==**
 
 ##### Прочитать конфигурационный файл *nginx.conf* внутри докер контейнера через команду *exec*
+![Docker Exec + Cat](images/DockerExecCat.png)
 ##### Создать на локальной машине файл *nginx.conf*
 ##### Настроить в нем по пути */status* отдачу страницы статуса сервера **nginx**
+![docker nginx conf](images/dockernginxconf.png)
 ##### Скопировать созданный файл *nginx.conf* внутрь докер образа через команду `docker cp`
 ##### Перезапустить **nginx** внутри докер образа через команду *exec*
-##### Проверить, что по адресу *localhost:80/status* отдается страничка со статусом сервера **nginx**
+![docker cp](images/dockercp.png)
+##### Проверить, что по адресу */status* отдается страничка со статусом сервера **nginx**
+![doker server status](images/dokerserverstatus.png)
 ##### Экспортировать контейнер в файл *container.tar* через команду *export*
+![docker export](images/dockerExport.png)
 ##### Остановить контейнер
+![docker Stop 2](images/dockerStop2.png)
 ##### Удалить образ через `docker rmi [image_id|repository]`, не удаляя перед этим контейнеры
+![docker Rmi](images/dockerRmi.png)
 ##### Удалить остановленный контейнер
+![](images/dockerRmCont.png)
 ##### Импортировать контейнер обратно через команду *import*
+![docker import](images/dockerrun2.png)
 ##### Запустить импортированный контейнер
+![docker run 2](images/dockerImport.png)
 ##### Проверить, что по адресу *localhost:80/status* отдается страничка со статусом сервера **nginx**
-
+![docker Up Servep](images/dockerUpServep.png)
 - В отчёт поместить скрины:
   - вызова и вывода всех использованных в этой части задания команд;
   - содержимое созданного файла *nginx.conf*;
