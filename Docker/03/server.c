@@ -1,14 +1,10 @@
-#include <fcgi_stdio.h>
+#include "fcgi_stdio.h"
 #include <stdlib.h>
+#include <stdio.h>
 
-int main(void)
-{
-
- while(FCGI_Accept() >= 0)
- {
-  printf("Content-type: text/html\r\nStatus: 200 OK\r\n\r\n");
-
+int main(void) {
+    while ( FCGI_Accept() >= 0 ) {
+    printf("Content-type: text/html\r\n Hello World! \n");
  }
-
   return 0;
 }
