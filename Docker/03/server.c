@@ -1,6 +1,5 @@
 #include "fcgi_stdio.h"
 #include <stdlib.h>
-#include <stdio.h>
 
 int main(void) {
     while ( FCGI_Accept() >= 0 ) {
