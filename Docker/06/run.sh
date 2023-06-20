@@ -1,2 +1,4 @@
 #!/bin/bash
-docker build -t server:server .
+docker-compose build
+docker-compose up -d
+curl localhost:80
